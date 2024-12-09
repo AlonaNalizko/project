@@ -6,6 +6,9 @@ from telebot import types
 import requests
 from telebot.handler_backends import StatesGroup, State
 
+'''
+@FilmFans_bot это бот для поиска фильмов/сериалов/аниме/мультсериалов/мультфильмов по жанрам комедия/мелодрама/драма/криминал/ужасы
+'''
 
 info = {}
 class User:
@@ -141,13 +144,13 @@ class Bot(User):
                 chat_id = message.chat.id
                 keyboard = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
                 mark1 = telebot.types.KeyboardButton(text=f'Переизбрать {media_type}')
-                mark2 = telebot.types.KeyboardButton(text='Выбрал фильм из предложенного, пока)')
+                mark2 = telebot.types.KeyboardButton(text='Выбрал фильм из предложенного, пока) Чтобы начать поиск заново - выберите /start')
                 keyboard.add (mark1, mark2)
                 self.bot.send_message(chat_id, 'Хочешь найти что-нибудь другое?)', reply_markup=keyboard)
 
                 @self.bot.message_handler(func=lambda message: message.text in [f'Переизбрать {media_type}', 'Выбрал фильм из предложенного, пока)'])
                 def other_or_bye(message):
-                    if message.text == 'Выбрал фильм из предложенного, пока)':
+                    if message.text == 'Выбрал фильм из предложенного, пока) Чтобы начать поиск заново выберите /start':
                         self.bot.send_message(message.chat.id, 'Приятного просмотра!', reply_markup=types.ReplyKeyboardRemove())
                         self.userInfo()
                     else:
