@@ -41,8 +41,7 @@ class Bot(User):
 
         @self.bot.message_handler(commands=['start'])
         def main(message):
-            self.bot.send_message(message.chat.id, f'Приветствую тебя, маленький кинолюбитель! \n{message.from_user.first_name}, приготовься, ведь скоро тебя ждёт увлекательный просмотр фильмов, сериалов и прочего! Введи команду /search для поиска.
-            Для справки, в моём боты вы можете найти "Фильм", "Сериал", "Аниме", "Мультфильм" или "Мультсериал". Для начала поиска можно ввести с клавитуры, главное, чтобы сообщение содержало такое же слово, как написано выше)')
+            self.bot.send_message(message.chat.id, f'Приветствую тебя, маленький кинолюбитель! \n{message.from_user.first_name}, приготовься, ведь скоро тебя ждёт увлекательный просмотр фильмов, сериалов и прочего! Введи команду /search для поиска. Для справки, в моём боты вы можете найти "Фильм", "Сериал", "Аниме", "Мультфильм" или "Мультсериал". Для начала поиска можно ввести с клавитуры, главное, чтобы сообщение содержало такое же слово, как написано выше)')
             self.name_user = message.from_user.username
 
         @self.bot.message_handler(commands=['help'])
@@ -73,7 +72,7 @@ class Bot(User):
                 self.bot.send_message(message.chat.id, f'{message.from_user.first_name}, выбери жанр аниме /genres, которые тебе нравятся, и я найду что-нибудь для тебя). Опять же можно ввести с клавитуры "Драма", "Комедия", "Мелодрама", "Криминал" или "Ужасы"', reply_markup=types.ReplyKeyboardRemove())
                 media_type = 'anime'
             else:
-                self.bot.send_message(message.chat.id, f'{message.from_user.first_name}, выбери жанр {message.text.lower()}ов /genres, которые тебе нравятся, и я найду что-нибудь для тебя)', reply_markup=types.ReplyKeyboardRemove())
+                self.bot.send_message(message.chat.id, f'{message.from_user.first_name}, выбери жанр {message.text.lower()}ов /genres, которые тебе нравятся, и я найду что-нибудь для тебя). Опять же можно ввести с клавитуры "Драма", "Комедия", "Мелодрама", "Криминал" или "Ужасы"', reply_markup=types.ReplyKeyboardRemove())
                 
                 if message.text.lower() == 'фильм':
                     media_type = 'movie'
