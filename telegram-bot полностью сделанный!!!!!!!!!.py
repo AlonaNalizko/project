@@ -150,8 +150,8 @@ class Bot(User):
 
                 @self.bot.message_handler(func=lambda message: message.text in [f'Переизбрать {media_type}', 'Выбрал фильм из предложенного, пока)'])
                 def other_or_bye(message):
-                    if message.text == 'Выбрал фильм из предложенного, пока) Чтобы начать поиск заново выберите /start':
-                        self.bot.send_message(message.chat.id, 'Приятного просмотра!', reply_markup=types.ReplyKeyboardRemove())
+                    if message.text == 'Выбрал фильм из предложенного, пока)':
+                        self.bot.send_message(message.chat.id, 'Приятного просмотра! Чтобы начать поиск заново выберите /start', reply_markup=types.ReplyKeyboardRemove())
                         self.userInfo()
                     else:
                         self.choice[media_type] += 1
