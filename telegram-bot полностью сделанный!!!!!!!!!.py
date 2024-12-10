@@ -144,7 +144,7 @@ class Bot(User):
                 chat_id = message.chat.id
                 keyboard = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
                 mark1 = telebot.types.KeyboardButton(text=f'Переизбрать {media_type}')
-                mark2 = telebot.types.KeyboardButton(text='Выбрал фильм из предложенного, пока) Чтобы начать поиск заново - выберите /start')
+                mark2 = telebot.types.KeyboardButton(text='Выбрал фильм из предложенного, пока)')
                 keyboard.add (mark1, mark2)
                 self.bot.send_message(chat_id, 'Хочешь найти что-нибудь другое?)', reply_markup=keyboard)
 
