@@ -4,7 +4,6 @@ import telebot
 import json
 from telebot import types
 import requests
-from telebot.handler_backends import StatesGroup, State
 
 '''
 @FilmFans_bot это бот для поиска фильмов/сериалов/аниме/мультсериалов/мультфильмов по жанрам комедия/мелодрама/драма/криминал/ужасы
@@ -130,7 +129,7 @@ class Bot(User):
                     elif count_err < 15:
                         count_err += 1
                         return new_media(count_err)
-                    self.bot.send_message(message.chat.id, 'Фильмов больше не осталось по вашему запросу', reply_markup=types.ReplyKeyboardRemove())
+                    self.bot.send_message(message.chat.id, 'Фильмов больше не осталось по вашему запросу. Чтобы начать поиск заново выберите /start', reply_markup=types.ReplyKeyboardRemove())
 
 
             def new_media(count_err):
